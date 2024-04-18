@@ -1,17 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void itemname(char iname[50])
 {
     printf("Enter item name: ");
     scanf("%s", iname);
 }
 
-void itemquantity(int *quantity)
+int itemquantity(int *quantity)
 {
     printf("Enter quantity of item: ");
     scanf("%d", quantity);
+    return *quantity;
 }
 
-void itemprice(float *price)
+int itemprice(float *price)
 {
     printf("Enter price of item: ");
     scanf("%f", price);
+    return *price;
 }
