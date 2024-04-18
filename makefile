@@ -1,5 +1,5 @@
-output: main.o customerentry.o itementry.o bill.o
-	gcc main.o customerentry.o itementry.o bill.o -o output
+output: main.o customerentry.o itementry.o bill.o login.o
+	gcc main.o customerentry.o itementry.o bill.o login.o -o output
 
 main.o: main.c
 	gcc -c main.c
@@ -12,3 +12,6 @@ itementry.o: itementry.c
 
 bill.o: bill.c
 	gcc -c bill.c
+
+login.o: login.c
+	gcc -c login.c
