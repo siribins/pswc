@@ -7,23 +7,26 @@ struct Item
     float price;
 };
 
-void GenBill(char *name, int number, struct Item items[], int item_num)
+void GenBill(char *name, char *number, struct Item items[], int item_num)
 {
     printf("\n");
     printf("**********************************************************\n");
     printf("Customer name: %s\n", name);
-    printf("Customer number: %d\n", number);
+    printf("Customer number: %s\n", number);
     printf("**********************************************************\n");
 
-    printf("NO\tITEM\t\tQUANTITY\tPRICE\tITEM TOTAL\n");
+    printf("ITEM\t\tQUANTITY\tPRICE\tITEM TOTAL\n");
     float sum=0;
     for (int i = 0; i < item_num; i++)
     {  
-        int k=i;
-        float total=0;
-        total=(items[i].quantity)*(items[i].price);
-        printf("%d\t%s\t\t%d\t\t%.2f\t%.2f\n", k+1, items[i].name, items[i].quantity, items[i].price, total);
-        sum+=total;
+        if (items[i].price!=0)
+        {
+            int k=i;
+            float total=0;
+            total=(items[i].quantity)*(items[i].price);
+            printf("%s\t\t%d\t\t%.2f\t%.2f\n", items[i].name, items[i].quantity, items[i].price, total);
+            sum+=total;
+        }
     }
 
     printf("**********************************************************\n");
