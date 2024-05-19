@@ -15,22 +15,21 @@ struct Item
     char user[50];
     char password[50];
 
-    username(user);
-    pass(password);
+    pass(password,user);
 
     int item_num=0;
     struct Item *items = (struct Item* )malloc(100 * sizeof(struct Item));
 
     char customer_name[50];
-    int customer_number=0;
+    char customer_number[15];
 
     strcpy(customer_name, user);
-    customer_number=mobnum(customer_number);
+    mobnum(customer_number);
 
     int choice=0;
-    while (choice!=3)
+    while (choice!=4)
     {
-        printf("\n1. Item Entry \n2. Generate Bill \n3. Quit\nSelect an option:");
+        printf("\n1. Item Entry \n2. Generate Bill \n3. Display inventory \n4. Quit\nSelect an option:");
         scanf("%d",&choice);
         printf("\n");
 
@@ -39,7 +38,7 @@ struct Item
             case 1:
                 itemname(items[item_num].name);
                 items[item_num].quantity=itemquantity(&items[item_num].quantity);
-                items[item_num].price=itemprice(&items[item_num].price);
+                items[item_num].price=pricefromcsv(items[item_num].name);
                 item_num++;
                 break;
 
@@ -48,10 +47,16 @@ struct Item
                 break;
 
             case 3:
+                display();
+                break;
+
+            case 4:
                 printf("Thank you");
                 break;
+
             default:
                 printf("Invalid Entry");
+                break;
         }
     }
     free(items);
