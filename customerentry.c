@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int mobnum(int num)
+char mobnum(char num[50])
 {
     printf("Enter customer mobile number: ");
-    scanf("%d",&num);
-    return num;
+    gets(num);
+    return *num;
 }
